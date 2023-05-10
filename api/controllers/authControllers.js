@@ -60,4 +60,8 @@ authController.get("/profile", (req, res) => {
   }
 });
 
+authController.post("/logout", (req, res) => {
+  res.cookie("token", "").json(true);
+});
+
 module.exports = authController;
