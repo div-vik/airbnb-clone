@@ -25,7 +25,7 @@ const connect = async () => {
 app.use(
   cors({
     credentials: true,
-    origin: "http://127.0.0.1:5173",
+    origin: process.env.CLIENT_URL,
   })
 );
 app.use(express.json());
