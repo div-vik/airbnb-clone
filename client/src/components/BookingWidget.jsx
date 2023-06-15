@@ -31,6 +31,9 @@ const BookingPage = ({ place }) => {
   }
 
   const bookThisPlace = async () => {
+    if (!user) {
+      setRedirect("/login");
+    }
     const response = await axios.post("/bookings/createBooking", {
       checkIn,
       checkOut,
@@ -47,6 +50,7 @@ const BookingPage = ({ place }) => {
   if (redirect) {
     return <Navigate to={redirect} />;
   }
+
   return (
     <div className="bg-white shadow p-4 rounded-2xl">
       <div className="text-2xl text-center">
