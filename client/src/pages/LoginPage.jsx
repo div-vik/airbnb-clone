@@ -50,6 +50,14 @@ const LoginPage = () => {
             <Link to={"/register"} className="underline text-black">
               Register now
             </Link>
+            <div>
+              <p className="mt-4">Provider</p>
+              <p>email: user@gmail.com</p>
+              <p>password: 123456789</p>
+              <p>Client</p>
+              <p>email: user2@gmail.com</p>
+              <p>password: 123456789</p>
+            </div>
           </div>
         </form>
       </div>
