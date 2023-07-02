@@ -13,7 +13,7 @@ import Layout from "./Layout";
 import axios from "axios";
 import { UserContextProvider } from "./context/UserContext";
 
-axios.defaults.baseURL = "https://airbnbclone-kxar.onrender.com";
+axios.defaults.baseURL = "http://127.0.0.1:5173";
 axios.defaults.withCredentials = true;
 
 function App() {
