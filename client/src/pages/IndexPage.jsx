@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 const IndexPage = () => {
   const [places, setPlaces] = useState([]);
   useEffect(() => {
-    axios.get("/places/getPlaces").then((response) => {
-      setPlaces(response.data);
-    });
+    axios
+      .get("https://airbnb-8qod.onrender.com/places/getPlaces")
+      .then((response) => {
+        setPlaces(response.data);
+      });
   }, []);
   return (
     <div className="mt-8 gap-x-6 gap-y-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
