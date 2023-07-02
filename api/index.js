@@ -13,6 +13,18 @@ const bookingController = require("./controllers/bookingController");
 
 const app = express();
 
+app.use(
+  cors({
+    credentials: true,
+    origin: process.env.CLIENT_URL,
+  })
+);
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+app.use("/uploads", express.static(__dirname + "/uploads"));
+
 const connect = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
@@ -21,17 +33,6 @@ const connect = async () => {
     console.log(error);
   }
 };
-
-app.use(
-  cors({
-    credentials: true,
-    origin: process.env.CLIENT_URL,
-  })
-);
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
-app.use("/uploads", express.static(__dirname + "/uploads"));
 
 app.post("/upload-by-link", async (req, res) => {
   const { link } = req.body;
